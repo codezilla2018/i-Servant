@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "513583067055",
+    "firebase_url": "https://iservant-721ce.firebaseio.com",
+    "project_id": "iservant-721ce",
+    "storage_bucket": "iservant-721ce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513583067055:android:1be953d2a327688e",
+        "android_client_info": {
+          "package_name": "codezilla.iservant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513583067055-lca2c5fsh4vjafuocbsbv11vdp4bmncm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "codezilla.iservant",
+            "certificate_hash": "0ce43170d695e202e8822564dd05dd24673f8ef6"
+          }
+        },
+        {
+          "client_id": "513583067055-1g7r1eca8lapjf9ns0p69ipnurj394oj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1PyaZrpZndfK3FLL4msjLFRX_C5c5UME"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513583067055-1g7r1eca8lapjf9ns0p69ipnurj394oj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
