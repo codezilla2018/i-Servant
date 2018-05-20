@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff050505"
+    tools:context="codezilla.iservant.VerifySignUp"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Account is not Verified"
+        android:textColor="@android:color/holo_blue_dark"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="81dp"
+        tools:layout_editor_absoluteY="34dp" />
+
+    <Button
+        android:id="@+id/verifybtn"
+        android:layout_width="168dp"
+        android:layout_height="77dp"
+        android:background="@color/colorPrimary"
+        android:text="verify using email"
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="171dp" />
+</android.support.constraint.ConstraintLayout>

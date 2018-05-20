@@ -64,12 +64,14 @@ public class SignUp extends AppCompatActivity {
                                     // the auth state listener will be notified and logic to handle the
                                     // signed in user can be handled in the listener.
                                     if (!task.isSuccessful()) {
-                                        Toast.makeText(SignUp.this, "Authentication failed.\n" + task.getException().getMessage(),
-                                                Toast.LENGTH_SHORT).show();
+                                        AlertDialog alertDialog = new AlertDialog.Builder(thisContext).create();
+                                        alertDialog.setTitle("Sign Up");
+                                        alertDialog.setMessage("Authentication failed.\n" + task.getException().getMessage());
+                                        alertDialog.show();
                                         startActivity(new Intent(SignUp.this, SignUp.class));
                                         finish();
                                     } else {
-                                        startActivity(new Intent(SignUp.this, SignUp.class));
+                                        startActivity(new Intent(SignUp.this, VerifySignUp.class));
                                         finish();
                                     }
                                 }
