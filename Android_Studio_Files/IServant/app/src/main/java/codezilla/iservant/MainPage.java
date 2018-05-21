@@ -1,8 +1,13 @@
 package codezilla.iservant;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,14 +18,16 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainPage extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, NearByJobsFragment.OnFragmentInteractionListener, SearchJobFragment.OnFragmentInteractionListener , OfferJobFragment.OnFragmentInteractionListener  , WorkHistoryFragment.OnFragmentInteractionListener , MyAccount.OnFragmentInteractionListener   {
 
     FirebaseUser user;
+    private static MainPage mainContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +36,19 @@ public class MainPage extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        //my code
+        Fragment fragment = null;
+        Class fragmentClass = null;
+        fragmentClass = NearByJobsFragment.class;
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+        //my code over
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -47,7 +59,8 @@ public class MainPage extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        //my code
+        mainContext=this;
 
 
     }
@@ -91,25 +104,55 @@ public class MainPage extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        boolean signedIn=true;
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Fragment fragment = null;
+        Class fragmentClass = null;
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nearbyjobs) {
+            fragmentClass = NearByJobsFragment.class;
+        } else if (id == R.id.searchjobs) {
+            fragmentClass = SearchJobFragment.class;
+        } else if (id == R.id.searchjobs) {
+            fragmentClass = OfferJobFragment.class;
+        } else if (id == R.id.offerjob) {
+            fragmentClass = OfferJobFragment.class;
+        } else if (id == R.id.workhistory) {
+            fragmentClass = WorkHistoryFragment.class;
+        } else if (id == R.id.account) {
+            fragmentClass = MyAccount.class;
+        } else if (id == R.id.signout) {
+            Toast.makeText(this,"Successfully Signed Out",Toast.LENGTH_LONG).show();
+            Intent in = new Intent(this.getApplicationContext(), Login.class);
+            FirebaseAuth.getInstance().signOut();
+            signedIn=false;
+            this.startActivity(in);
+            this.finish();
+        }
+        if(signedIn){
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public static MainPage getMainContext(){
+        return mainContext;
+    }
+
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }

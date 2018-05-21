@@ -9,4 +9,7 @@
     <string name="uname">User</string>
     <string name="iservant">iServant</string>
     <string name="todo">TODO</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

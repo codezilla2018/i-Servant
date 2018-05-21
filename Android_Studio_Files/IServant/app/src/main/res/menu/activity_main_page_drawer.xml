@@ -5,19 +5,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nearbyjobs"
             android:icon="@drawable/nearby"
             android:title="Nearby Jobs" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/searchjobs"
             android:icon="@drawable/find"
             android:title="Search Job" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/offerjob"
             android:icon="@drawable/offer"
             android:title="Offer Job" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/workhistory"
             android:icon="@drawable/history"
             android:title="Work History" />
     </group>
@@ -25,11 +25,11 @@
     <item android:title="My Profile">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/account"
                 android:icon="@drawable/account"
                 android:title="Account Settings" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/signout"
                 android:icon="@drawable/signout"
                 android:title="Sign Out" />
         </menu>
