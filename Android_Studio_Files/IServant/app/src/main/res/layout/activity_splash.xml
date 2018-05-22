@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorButtonNormal"
+    android:background="#cfd1d1"
     tools:context="codezilla.iservant.Splash"
     tools:layout_editor_absoluteY="81dp">
 
@@ -30,10 +30,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="68dp"
         android:layout_marginEnd="8dp"
         android:text="iServant © 2018 All rights reserved"
         android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.528"

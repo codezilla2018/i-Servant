@@ -112,11 +112,13 @@ public class NearByJobsFragment extends Fragment {
                                 //dog.setLocationLongitude(location.getLongitude());
                             }
                             noOfFixes[0]++;
-                            if (noOfFixes[0] > 15) {
+                            if (noOfFixes[0] > 5) {
                                 // Remove the listener ryou previously added
                                 locationManager.removeUpdates(this);
                                 locationtxt.setText("Location Obtained with accuracy" + location.getAccuracy() + " metres. NOW YOU CAN CONTINUE...");
                                 spinner.setVisibility(View.GONE);
+                                Intent in = new Intent(MainPage.getMainContext().getApplicationContext(), NearbyJobs.class);
+                                startActivity(in);
                                 //nextbtn.setEnabled(true);
                             }
 
